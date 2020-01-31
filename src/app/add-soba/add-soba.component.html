@@ -1,0 +1,17 @@
+<form [formGroup]="sobaForm" (ngSubmit)="submitForm()">
+    <div>
+    <label for="title">Title</label>
+    <input formControlName="title" type="text" name="title" #title>
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input formControlName="description" type="text" name="description" #description>
+        </div>
+        <div>
+            <label for="beds">Beds</label>
+            <input formControlName="beds" type="text" name="beds" #beds>
+            </div>
+            <div>
+        <button type="submit" name="submit">Dodaj</button>
+        </div>
+</form>

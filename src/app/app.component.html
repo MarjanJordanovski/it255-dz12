@@ -1,0 +1,61 @@
+<form>
+  <h3>Add room</h3>
+  <div>
+  <label for="title">Title:</label>
+  <input name="title" id="title" #newtitle>
+  </div>
+  <div>
+  <label for="description">Description:</label>
+  <input name="description" id="description" #newdescription>
+  </div>
+  <div>
+  <label for="beds">Beds:</label>
+  <input name="beds" id="beds" #newbeds>
+  </div>
+  <button (click)="addSoba(newtitle, newdescription, newbeds)" >
+  Submit room
+  </button>
+  </form>
+
+  <div>
+    <div>
+    <h3>Search</h3>
+    <input [(ngModel)]="searchText" placeholder="search text goes here">
+    </div>
+      <div *ngFor="let soba of sobe | filter : searchText; index as i;" >
+        <app-soba
+        (sobaToDelete)="deleteSoba($event)"
+        (updateSoba)="updateSoba($event)"
+        [soba]="soba"></app-soba>
+      </div>
+<p><b>Lista soba:</b></p>
+    </div>
+
+  <div>
+    <app-soba *ngFor="let soba of sobe" [soba]="soba">
+    </app-soba>
+    </div>
+
+<p>----------------------------------------------------------</p>
+<p>----------------------------------------------------------</p>
+<div>
+  <div>
+  <div>
+  <app-add-soba (sobaToAdd)="addSoba($event)"></app-add-soba>
+  </div>
+  <div>
+  <h3>Search</h3>
+  <input [(ngModel)]="searchText" placeholder="search text goes here">
+  </div>
+  </div>
+  <div>
+  <div *ngFor="let soba of sobe | filter : searchText;
+  index as i; ">
+  <app-soba
+  (sobaToDelete)="deleteSoba($event)"
+  (updateSoba)="updateSoba($event)"
+  [soba]="soba"></app-soba>
+  <app-add-soba></app-add-soba>
+  </div>
+  </div>
+  </div>
